@@ -1,5 +1,5 @@
 #.PHONE:all
-all:usesharedlib uselib hello sayhello
+all:usesharedlib uselib hello sayhello driverdemo
 
 usesharedlib:usesharedlib.c hello.so
 	gcc $^ -o $@ -Wall
@@ -17,12 +17,15 @@ libhello.a:firsthello.c secondhello.c
 	gcc -c $^ -Wall
 	ar -r $@ $(patsubst %.c,%.o,$^)
 
-hello sayhello:FORCE
+hello sayhello driverdemo:FORCE
 hello:hello.c
 	gcc $< -o $@ -Wall
 
 sayhello:sayhello.c hellomain.c
 	gcc $(filter-out FORCE, $^) -o $@ -Wall 
+
+driverdemo:driverdemo.c
+	gcc $< -o $@ -Wall
 
 #.PHONE:clean
 clean:
