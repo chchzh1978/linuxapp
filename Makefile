@@ -29,7 +29,7 @@ driverdemo:driverdemo.c
 
 #.PHONE:clean
 clean:
-	rm -f usesharedlib hello.so hello sayhello uselib libhello.a firsthello.o secondhello.o
+	rm -f usesharedlib hello.so hello sayhello uselib libhello.a firsthello.o secondhello.o driverdemo
 
 print: *.c
 	lpr -p $?
